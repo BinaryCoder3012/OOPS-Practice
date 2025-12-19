@@ -1,0 +1,64 @@
+Constructor is a special method used to initialize an object in a class when the object is created.
+They have same name as the class,and if no constructor is defined,Java provides a default constructor automatically.
+
+Types of Constructors-
+1 Non-parameterized-
+class Bank{
+    private double balance;
+    private String accNum;
+    Bank(){
+    balance=0.00;
+    accNum="";
+    }
+}
+
+2 Parameterized-
+class Bank{
+    private double balance;
+    private String accNum;
+    Bank(double balance,String accNum){
+    this.balance=balance;
+    this.accNum=accNum;
+    }
+}
+
+3 Copy Constructor(when an object is passed as a parameter)-
+class Bank{
+    private double balance;
+    private String accNum;
+    Bank(double balance,String accNum){//Parameterized Constructor
+        this.accNum=accNum;
+        this.balance=balance;
+    }
+    Bank(Bank bank){//Copy Constructor
+        this.accNum=bank.accNum;
+        this.balance=bank.balance;
+    }
+    void displayDetails(){
+        System.out.println(accNum);
+        System.out.println(balance);
+    }
+}
+class Main{
+    public static void main(String[] args){
+        Bank obj1=new Bank(100.00,"ABCD");
+        Bank obj2=new Bank(obj1);
+        obj2.displayDetails();
+    }
+}
+
+Constructor Overloading
+class Bank{
+    private double balance;
+    private String accNum;
+    Bank(double balance,String accNum){
+    this.balance=balance;
+    this.accNum=accNum;
+    }
+    Bank(double balance){
+    this.balance=balance;
+    }
+    Bank(String accNum){
+    this.accNum=accNum;
+    }
+}
