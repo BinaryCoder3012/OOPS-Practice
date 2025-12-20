@@ -1,0 +1,48 @@
+Encapsulation is the process of data hiding in which the internal data of a class
+is hidden from the outside world.
+
+It is the mechanism of wrapping data members (attributes) and the methods that
+operate on them into a single unit called a class.
+
+Encapsulation helps in:
+- Improving security
+- Achieving modularity
+- Increasing code reusability
+- Improving maintainability
+
+Encapsulation is implemented in Java using:
+- private data members
+- public getter and setter methods
+
+Example:
+private int salary;
+public int getSalary()
+public void setSalary(int salary)
+
+
+Code:
+
+import java.util.*;
+class BankAcc {
+    private String accNumber;
+    private double balance;  // private data members (data hiding)
+    public void setDetails(String accNumber, double balance) {//setter
+        this.accNumber = accNumber;
+        this.balance = balance;
+    }
+    public String getAccNumber() { //getter
+        return accNumber;
+    }
+    public double getBalance() {
+        return balance;
+    }
+}
+
+public class Encapsulation {
+    public static void main(String[] args) {
+        BankAcc account = new BankAcc();
+        account.setDetails("ABCD", 25000.50);
+        System.out.println("ACCOUNT NUMBER : " + account.getAccNumber());
+        System.out.printf("BALANCE : %.2f%n", account.getBalance());
+    }
+}
